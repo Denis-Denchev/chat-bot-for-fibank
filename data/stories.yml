@@ -1,0 +1,41 @@
+version: "3.1"
+
+stories:
+- story: потребител иска инфо за кредитите
+  steps:
+    - intent: ask_credit_types
+    - action: utter_ask_credit_types
+
+- story: потребител пита за потребителски кредит
+  steps:
+    - intent: ask_consumer_credit
+    - action: utter_ask_consumer_credit
+
+- story: потребител пита за жилищен кредит
+  steps:
+    - intent: ask_home_credit
+    - action: utter_ask_home_credit
+
+- story: потребител пита за овърдрафт
+  steps:
+    - intent: ask_overdraft
+    - action: utter_ask_overdraft
+
+- story: потребител пита за специален кредит
+  steps:
+    - intent: ask_special_credit
+    - action: utter_ask_special_credit
+
+- story: потребител иска да сравни кредити
+  steps:
+    - intent: compare_credits
+    - action: utter_compare_credits
+
+- story: потребител благодари и си тръгва
+  steps:
+    - intent: thanks
+    - action: utter_thanks
+    - intent: goodbye
+    - action: utter_goodbye
+
+

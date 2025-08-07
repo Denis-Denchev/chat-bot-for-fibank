@@ -1,0 +1,38 @@
+version: "3.1"
+
+rules:
+
+
+- rule: Довиждане
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+- rule: Благодарност
+  steps:
+    - intent: thanks
+    - action: utter_thanks
+
+- rule: fallback
+  steps:
+    - intent: nlu_fallback
+    - action: utter_default
+
+- rule: Поздрав и въпрос за име
+  steps:
+    - intent: greet
+    - action: utter_ask_name
+
+- rule: Потребител казва име
+  steps:
+    - intent: provide_name
+    - action: utter_greet_with_name
+
+
+responses:
+  utter_default:
+    - text: |
+        Съжалявам, не разбрах въпроса Ви. Можете ли да го формулирате по друг начин?
+
+
+
