@@ -8,74 +8,219 @@ nlu:
     - добър ден
     - hello
     - hi
-    - хей
 
 - intent: goodbye
   examples: |
-    - чао
     - довиждане
+    - чао
     - до скоро
-    - сбогом
+    - goodbye
     - bye
+
+- intent: thanks
+  examples: |
+    - благодаря
+    - мерси
+    - благодарим
+    - thanks
+    - thank you
 
 - intent: ask_credit_types
   examples: |
     - Какви кредити предлагате?
-    - Можете ли да ми кажете за кредитите?
-    - Имате ли потребителски или ипотечни кредити?
-    - Какви видове кредитни продукти имате?
-    - Има ли овърдрафти?
+    - Какви кредити имате?
+    - Имате ли кредити?
+    - What types of loans do you offer?
+    - What loans do you have?
+    - Do you offer loans?
 
-- intent: ask_consumer_credit
+- intent: request_credit
   examples: |
-    - Разкажи ми за потребителските кредити
-    - Какъв е лихвеният процент при потребителски кредит?
-    - Колко мога да изтегля с потребителски заем?
-    - Имате ли кредит за домакинства?
-    - Има ли потребителски кредит без обезпечение?
+    - Искам да изтегля кредит
+    - Искам кредит
+    - Нуждая се от заем
+    - Бих искал заем
+    - I want a loan
+    - I need a loan
+    - I'd like to apply for a loan
 
-- intent: ask_home_credit
+- intent: ask_bot_identity
   examples: |
-    - Имате ли жилищен кредит?
-    - Какви са условията за ипотечен кредит?
-    - Колко е лихвата при жилищен заем?
-    - Може ли информация за кредит за жилище?
-    - Има ли кредит за хора с доход от чужбина?
+    - вие бот ли сте
+    - човек ли си
+    - какво си ти
+    - are you a bot
+    - are you human
+    - what are you
 
-- intent: ask_overdraft
+- intent: request_human_agent
   examples: |
-    - Какво е овърдрафт?
-    - Имате ли овърдрафт по сметка?
-    - Какъв е лимитът за овърдрафт?
-    - Как се кандидатства за овърдрафт?
+    - мога ли да говоря с човек
+    - искам да ме свържете с оператор
+    - дайте ми сътрудник
+    - I want to talk to a human
+    - connect me to an agent
+    - can I speak to a person
 
-- intent: ask_special_credit
+- intent: deny
   examples: |
-    - Имате ли кредит за студенти?
-    - Какво е Click кредит?
-    - Какво представлява онлайн стоковия кредит?
-    - Има ли кредит за зелена енергия?
-    - Какви нови кредити предлагате?
+    - не
+    - не, благодаря
+    - не, няма нужда
+    - no
+    - no, thanks
+    - not now
 
-- intent: compare_credits
+- intent: ask_card_types
   examples: |
-    - Кой кредит е най-подходящ за мен?
-    - Каква е разликата между потребителски и ипотечен кредит?
-    - Какво да избера – овърдрафт или потребителски заем?
-    - Сравни кредитите, които предлагате
+    - какви кредитни карти предлагате
+    - имате ли кредитни карти
+    - кои кредитни карти имате
+    - what credit cards do you offer
+    - do you have credit cards
+    - list your credit cards
+    - Какви кредитни карти предлагате?
+    - Visa или Mastercard имате ли?
+    - credit cards you offer
+    - what credit cards do you have
+    - list of credit cards
 
-- intent: thanks
+- intent: ask_card_fees
   examples: |
-    - Благодаря
-    - Мерси
-    - Благодарности
-    - супер си
+    - има ли годишна такса
+    - какви са таксите по кредитните карти
+    - такса за обслужване на карта
+    - credit card fees
+    - annual fee for the card
+    - Какви са таксите по кредитните карти?
+    - Credit card fees
+    - Има ли годишна такса?
+
+- intent: ask_card_grace
+  examples: |
+    - има ли безлихвен период по картата
+    - колко е гратисният период
+    - is there a grace period
+    - how long is the grace period
+    - Има ли безлихвен период по картата?
+    - Is there a grace period on the card?
+    - Колко е гратисният период?
+
+- intent: ask_card_limit_requirements
+  examples: |
+    - как се определя лимитът на картата
+    - какви документи трябват за лимит
+    - card limit requirements
+    - how is the credit limit determined
+    - Как се определя лимитът на кредитната карта?
+    - What are the requirements for the card limit?
+    - Какви документи са нужни за лимит?
+
+- intent: affirm
+  examples: |
+    - да
+    - да, съгласен съм
+    - yes
+    - sure
+    - ok
 
 - intent: provide_name
   examples: |
     - Казвам се [Денис](name)
     - Аз съм [Иван](name)
     - [Мария](name)
-    - Името ми е [Георги](name)
-    - [Николай](name)
+    - [Силвия](name)
+    - My name is [John](name)
+    - I am [Alex](name)
+    - [George](name)
+    - [Denis](name)
+    - Денис
+    - Силвия
+    - Иван
+    - Maria
+    - John
 
+- intent: provide_phone
+  examples: |
+    - [0888123456](phone)
+    - [+359888123456](phone)
+    - [0877123456](phone)
+    - my phone is [0888123456](phone)
+    - phone number [+359888123456](phone)
+    - телефона ми е [0877432178](phone)
+    - номера е [0722819273](phone)
+
+- intent: provide_email
+  examples: |
+    - [ivan.petrov@outlook.com](email)
+    - [test@mail.bg](email)
+    - [test234.123@mail.bg](email)
+    - [dog.cat@gmail.com](email)
+    - мейла ми е [test123@mail.bg](email)
+    - my email is [ivan@example.com](email)
+
+- intent: ask_consumer_credit
+  examples: |
+    - Разкажете ми за потребителските кредити
+    - Consumer loan details
+    - Какъв е лихвеният процент при потребителски кредит?
+    - How much can I borrow with a consumer loan?
+
+- intent: ask_home_credit
+  examples: |
+    - Имате ли жилищен кредит?
+    - Mortgage details
+    - Какви са условията за ипотечен кредит?
+    - What is the mortgage interest?
+
+- intent: ask_overdraft
+  examples: |
+    - Какво е овърдрафт?
+    - Do you offer overdraft?
+    - Какъв е лимитът за овърдрафт?
+
+- intent: ask_special_credit
+  examples: |
+    - Имате ли кредит за студенти?
+    - Do you have a green energy loan?
+    - Какво е Click кредит?
+
+- intent: compare_credits
+  examples: |
+    - Помогнете ми да избера кредит
+    - Compare your loans
+    - Кой кредит е подходящ за мен?
+
+- intent: chitchat_howareyou
+  examples: |
+    - как сте
+    - как си
+    - how are you
+    - how are you today
+
+- intent: chitchat_capabilities
+  examples: |
+    - какво можете
+    - какво можеш
+    - what can you do
+    - how can you help
+
+- intent: chitchat_thanks
+  examples: |
+    - благодаря ви
+    - thanks a lot
+    - appreciate it
+
+- lookup: name
+  examples: |
+    Денис
+    Силвия
+    Иван
+    Мария
+    John
+    Alex
+    George
+
+- regex: name
+  examples: |
+    ^[A-ZА-Я][a-zа-я]{1,}$
