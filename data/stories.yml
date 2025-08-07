@@ -1,41 +1,56 @@
 version: "3.1"
 
 stories:
-- story: потребител иска инфо за кредитите
+
+- story: Информация за кредитите (общо)
   steps:
     - intent: ask_credit_types
     - action: utter_ask_credit_types
 
-- story: потребител пита за потребителски кредит
+- story: Потребителски кредит
   steps:
     - intent: ask_consumer_credit
     - action: utter_ask_consumer_credit
 
-- story: потребител пита за жилищен кредит
+- story: Жилищен кредит
   steps:
     - intent: ask_home_credit
     - action: utter_ask_home_credit
 
-- story: потребител пита за овърдрафт
+- story: Овърдрафт
   steps:
     - intent: ask_overdraft
     - action: utter_ask_overdraft
 
-- story: потребител пита за специален кредит
+- story: Специални кредити
   steps:
     - intent: ask_special_credit
     - action: utter_ask_special_credit
 
-- story: потребител иска да сравни кредити
+- story: Сравнение и стартиране на препоръка
   steps:
     - intent: compare_credits
     - action: utter_compare_credits
+    - intent: affirm
+    - action: credit_recommendation_form
+    - active_loop: credit_recommendation_form
 
-- story: потребител благодари и си тръгва
+- story: Събиране на контакт – телефон → имейл → запис
   steps:
-    - intent: thanks
-    - action: utter_thanks
-    - intent: goodbye
-    - action: utter_goodbye
+    - action: utter_ask_phone
+    - intent: provide_phone
+    - action: utter_ask_email
+    - intent: provide_email
+    - action: action_save_contact
 
+- story: Събиране на контакт – само телефон
+  steps:
+    - action: utter_ask_phone
+    - intent: provide_phone
+    - action: action_save_contact
 
+- story: Събиране на контакт – само имейл
+  steps:
+    - action: utter_ask_email
+    - intent: provide_email
+    - action: action_save_contact

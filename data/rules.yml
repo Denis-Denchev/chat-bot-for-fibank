@@ -2,22 +2,6 @@ version: "3.1"
 
 rules:
 
-
-- rule: Довиждане
-  steps:
-    - intent: goodbye
-    - action: utter_goodbye
-
-- rule: Благодарност
-  steps:
-    - intent: thanks
-    - action: utter_thanks
-
-- rule: fallback
-  steps:
-    - intent: nlu_fallback
-    - action: utter_default
-
 - rule: Поздрав и въпрос за име
   steps:
     - intent: greet
@@ -28,11 +12,102 @@ rules:
     - intent: provide_name
     - action: utter_greet_with_name
 
+- rule: Благодарност
+  steps:
+    - intent: thanks
+    - action: utter_thanks
 
-responses:
-  utter_default:
-    - text: |
-        Съжалявам, не разбрах въпроса Ви. Можете ли да го формулирате по друг начин?
+- rule: Довиждане
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+- rule: Как сте
+  steps:
+    - intent: chitchat_howareyou
+    - action: utter_chitchat_howareyou
+
+- rule: Какво може ботът
+  steps:
+    - intent: chitchat_capabilities
+    - action: utter_chitchat_capabilities
+
+- rule: Благодарност (чиччат)
+  steps:
+    - intent: chitchat_thanks
+    - action: utter_chitchat_thanks
+
+- rule: Искане за оператор → инфо + поискай телефон
+  steps:
+    - intent: request_human_agent
+    - action: utter_human_handoff
+    - action: utter_ask_phone
 
 
 
+- rule: Видове кредитни карти
+  steps:
+    - intent: ask_card_types
+    - action: utter_ask_card_types
+
+- rule: Видове кредитни карти
+  steps:
+    - intent: ask_credit_cards_types
+    - action: utter_ask_card_types
+
+- rule: Такси по кредитни карти
+  steps:
+    - intent: ask_card_fees
+    - action: utter_ask_card_fees
+
+- rule: Гратисен период по карти
+  steps:
+    - intent: ask_card_grace
+    - action: utter_ask_card_grace
+
+- rule: Изисквания за лимит по карти
+  steps:
+    - intent: ask_card_limit_requirements
+    - action: utter_ask_card_limit_requirements
+
+- rule: Общ кредит – уточняване
+  steps:
+    - intent: request_credit
+    - action: utter_request_credit_clarify
+
+- rule: Отказ/НЕ – връщане към избор тема
+  steps:
+    - intent: deny
+    - action: utter_ask_credit_types
+
+- rule: Ботова идентичност
+  steps:
+    - intent: ask_bot_identity
+    - action: utter_bot_identity
+
+- rule: Активиране на формата при утвърждаване
+  steps:
+    - intent: affirm
+    - action: credit_recommendation_form
+    - active_loop: credit_recommendation_form
+
+- rule: Кредитна форма — събиране
+  condition:
+    - active_loop: credit_recommendation_form
+  steps:
+    - action: credit_recommendation_form
+    - active_loop: credit_recommendation_form
+
+- rule: Кредитна форма — приключване
+  condition:
+    - active_loop: credit_recommendation_form
+  steps:
+    - action: credit_recommendation_form
+    - active_loop: null
+    - action: utter_credit_recommendation_default
+
+# === FALLBACK (ЕДИНЕН) ===
+- rule: fallback
+  steps:
+    - intent: nlu_fallback
+    - action: utter_default
